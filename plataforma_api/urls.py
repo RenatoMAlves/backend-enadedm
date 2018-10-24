@@ -1,0 +1,7 @@
+from django.contrib import admin
+from django.urls import path, include
+from plataforma_api import views
+
+urlpatterns = [
+  path('resultados', views.ResultList.as_view()),
+]
