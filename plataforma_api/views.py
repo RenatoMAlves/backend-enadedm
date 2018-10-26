@@ -8,6 +8,25 @@ class ResultList(generics.ListAPIView):
     queryset = Ft_resultado.objects.all()
     serializer_class = ResultadoSerializer
 
+class ResultByCursoList(generics.ListAPIView):
+    serializer_class = ResultadoSerializer
+    def get_queryset(self):
+        curso = self.kwargs['id_curso']
+        return Ft_resultado.objects.filter(id_curso = curso)
+
+class ResultByEstadoList(generics.ListAPIView):
+    serializer_class = ResultadoSerializer
+    def get_queryset(self):
+        sigla = self.kwargs['sigla']
+        return Ft_resultado.objects.filter(id_estado__sigla = sigla)
+
+class ResultByCursoAndArea(generics.ListAPIView):
+    serializer_class = ResultadoSerializer
+    def get_queryset(self):
+        curso = self.kwargs['id_curso']
+        area = self.kwargs['id_area']
+        return Ft_resultado.objects.filter(id_curso = curso).filter(id_area = area)
+
 class EstadosList(generics.ListAPIView):
     queryset = Dim_estado.objects.all()
     serializer_class = EstadoSerializer

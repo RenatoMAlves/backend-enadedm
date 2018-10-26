@@ -7,4 +7,7 @@ urlpatterns = [
   path('estados', views.EstadosList.as_view()),
   path('areas', views.AreaList.as_view()),
   path('cursos', views.CursosList.as_view()),
+  path('resultados/<int:id_curso>', views.ResultByCursoList.as_view()),
+  path('resultados/<slug:sigla>', views.ResultByEstadoList.as_view()),
+  path('resultados/<int:id_curso>/<int:id_area>', views.ResultByCursoAndArea.as_view()),
 ]

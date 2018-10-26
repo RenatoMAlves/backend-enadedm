@@ -17,13 +17,13 @@ class Dim_estado(models.Model):
   id = models.IntegerField(primary_key=True)
   sigla = models.CharField(max_length=2)
   def __str__(self):
-    return "{}{}".format(self.id,self.estado)
+    return "{} - {}".format(self.id,self.sigla)
 
 class Dim_curso(models.Model):
   id = models.IntegerField(primary_key=True)
   curso = models.CharField(max_length=50)
   def __str__(self):
-    return "{}{}".format(self.id,self.curso)
+    return "{} - {}".format(self.id,self.curso)
 
 class Dim_area_enquadramento(models.Model):
   id = models.IntegerField(primary_key=True)
@@ -31,7 +31,7 @@ class Dim_area_enquadramento(models.Model):
   class Meta: 
     verbose_name_plural = "Dim_areas_enquadramento"
   def __str__(self):
-    return "{}{}".format(self.id,self.area)
+    return "{} - {}".format(self.id,self.area)
 
 class Ft_resultado(models.Model):
   volume_incidencias = models.IntegerField()
