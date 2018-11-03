@@ -2,7 +2,7 @@ from .models import Ft_resultado, Dim_area_enquadramento, Dim_curso, Dim_regiao,
 from rest_framework import serializers 
 
 class ResultadoSerializer(serializers.Serializer):
-  id_ano = serializers.SlugRelatedField(slug_field = 'ano', read_only=True)
+  ano = serializers.SlugRelatedField(slug_field = 'ano', read_only=True)
   id_area = serializers.SlugRelatedField(slug_field = 'area', read_only=True)
   id_curso = serializers.SlugRelatedField(slug_field = 'curso', read_only=True)
   id_regiao = serializers.SlugRelatedField(slug_field = 'regiao', read_only=True)

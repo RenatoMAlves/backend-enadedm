@@ -37,7 +37,7 @@ class Ft_resultado(models.Model):
   porcentagem_certas = models.FloatField(default=0)
   porcentagem_erradas = models.FloatField(default=0)
   porcentagem_branco_invalida = models.FloatField(default=0)
-  ano = models.ForeignKey(Dim_ano, on_delete=models.PROTECT)
+  ano = models.ForeignKey(Dim_ano, related_name='id_ano', on_delete=models.PROTECT)
   id_regiao = models.ForeignKey(Dim_regiao, related_name='id_regiao', on_delete=models.PROTECT)
   id_curso = models.ForeignKey(Dim_curso, related_name='id_curso', on_delete=models.PROTECT)
   id_area = models.ForeignKey(Dim_area_enquadramento, related_name='id_area', on_delete=models.PROTECT)
