@@ -13,12 +13,6 @@ class Dim_regiao(models.Model):
   def __str__(self):
     return self.regiao
 
-class Dim_estado(models.Model):
-  id = models.IntegerField(primary_key=True)
-  sigla = models.CharField(max_length=2)
-  def __str__(self):
-    return "{} - {}".format(self.id,self.sigla)
-
 class Dim_curso(models.Model):
   id = models.IntegerField(primary_key=True)
   curso = models.CharField(max_length=50)
@@ -34,14 +28,19 @@ class Dim_area_enquadramento(models.Model):
     return "{} - {}".format(self.id,self.area)
 
 class Ft_resultado(models.Model):
-  volume_incidencias = models.IntegerField()
-  volume_incidencias_porcentagem = models.FloatField()
-  porcentagem_certas = models.FloatField()
+  volume_incidencias = models.IntegerField(default=0)
+  porcentagem_incidencias = models.FloatField(default=0)
+  qtd_questoes = models.IntegerField(default=0)
+  qtd_certas = models.IntegerField(default=0)
+  qtd_erradas = models.IntegerField(default=0)
+  qtd_branco_invalidas = models.IntegerField(default=0)
+  porcentagem_certas = models.FloatField(default=0)
+  porcentagem_erradas = models.FloatField(default=0)
+  porcentagem_branco_invalida = models.FloatField(default=0)
   ano = models.ForeignKey(Dim_ano, on_delete=models.PROTECT)
   id_regiao = models.ForeignKey(Dim_regiao, related_name='id_regiao', on_delete=models.PROTECT)
-  id_estado = models.ForeignKey(Dim_estado, related_name='id_estado', on_delete=models.PROTECT)
   id_curso = models.ForeignKey(Dim_curso, related_name='id_curso', on_delete=models.PROTECT)
   id_area = models.ForeignKey(Dim_area_enquadramento, related_name='id_area', on_delete=models.PROTECT)
 
   def __str__(self):
-    return "{} - {} ({})".format(self.ano, self.id_area, self.id_estado)
+    return "{} - {} ({})".format(self.ano, self.id_area, self.id_regiao)
