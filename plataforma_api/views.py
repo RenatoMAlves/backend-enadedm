@@ -27,6 +27,21 @@ class ResultByCursoAndArea(generics.ListAPIView):
         area = self.kwargs['id_area']
         return Ft_resultado.objects.filter(id_curso = curso).filter(id_area = area)
 
+class ResultByAnoAndCurso(generics.ListAPIView):
+    serializer_class = ResultadoSerializer
+    def get_queryset(self):
+        ano = self.kwargs['ano']
+        curso = self.kwargs['id_curso']
+        return Ft_resultado.objects.filter(ano = ano).filter(id_curso = curso)
+
+class ResultByAnoCursoAndArea(generics.ListAPIView):
+    serializer_class = ResultadoSerializer
+    def get_queryset(self):
+        ano = self.kwargs['ano']
+        curso = self.kwargs['curso']
+        area = self.kwargs['area']
+        return Ft_resultado.objects.filter(ano = ano).filter(id_curso = curso).filter(id_area = area)
+
 class AreaList(generics.ListAPIView):
     queryset = Dim_area_enquadramento.objects.all()
     serializer_class = AreaSerializer
