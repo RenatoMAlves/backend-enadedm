@@ -9,5 +9,7 @@ urlpatterns = [
   path('regioes', views.RegioesList.as_view()),
   path('anos', views.AnoList.as_view()),
   path('resultados/<int:id_curso>', views.ResultByCursoList.as_view()),
-  path('resultados/<int:id_curso>/<int:id_area>', views.ResultByCursoAndArea.as_view()),
+  # path('resultados/<int:id_curso>/<int:id_area>', views.ResultByCursoAndArea.as_view()),
+  path('resultados/<int:ano>/<int:id_curso>', views.ResultByAnoAndCurso.as_view()),
+  path('resultados/<int:ano>/<int:curso>/<int:area>', views.ResultByAnoCursoAndArea.as_view()),
 ]
