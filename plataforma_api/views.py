@@ -40,7 +40,7 @@ class ResultByAnoCursoAndArea(generics.ListAPIView):
         ano = self.kwargs['ano']
         curso = self.kwargs['curso']
         area = self.kwargs['area']
-        return Ft_resultado.objects.filter(ano = ano).filter(id_curso = curso).filter(id_area = area)
+        return Ft_resultado.objects.filter(ano = ano).filter(id_curso = curso).filter(id_area = area).order_by('qtd_certas', 'qtd_erradas')
 
 class AreaList(generics.ListAPIView):
     queryset = Dim_area_enquadramento.objects.all()
