@@ -49,8 +49,6 @@ class Ft_resultado(models.Model):
 class Ft_associacao(models.Model):
   antecedente = models.CharField(max_length=100)
   consequente = models.CharField(max_length=50)
-  suporte = models.FloatField(default=0)
-  confianca = models.FloatField(default=0)
   total = models.IntegerField(default=0)
   ano = models.ForeignKey(Dim_ano, related_name='id_ano_id', on_delete=models.PROTECT)
   id_curso = models.ForeignKey(Dim_curso, related_name='id_curso_id', on_delete=models.PROTECT)
