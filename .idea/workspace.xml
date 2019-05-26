@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56a21301-1ebc-4b3c-b049-4c01af558000" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/plataforma_api/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/plataforma_api/models.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +15,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/plataforma_api/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+            <state relative-caret-position="249">
+              <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
             </state>
           </provider>
         </entry>
@@ -212,8 +212,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/plataforma_api/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="54" lean-forward="true" selection-start-line="54" selection-end-line="54" />
+        <state relative-caret-position="249">
+          <caret line="53" lean-forward="true" selection-start-line="53" selection-end-line="53" />
         </state>
       </provider>
     </entry>
