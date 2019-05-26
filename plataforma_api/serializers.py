@@ -1,4 +1,4 @@
-from .models import Ft_resultado, Dim_area_enquadramento, Dim_curso, Dim_regiao, Dim_ano
+from .models import Ft_resultado, Dim_area_enquadramento, Dim_curso, Dim_regiao, Dim_ano, Ft_associacao
 from rest_framework import serializers 
 
 class ResultadoSerializer(serializers.Serializer):
@@ -46,3 +46,10 @@ class AnoSerializer(serializers.Serializer):
   class Meta:
     model = Dim_ano
     fields = ('ano')
+
+class Ft_associacaoSerializer(serializers.Serializer):
+  name = serializers.CharField()
+  value = serializers.IntegerField()
+  class Meta:
+    model = Ft_associacao
+    fields = '__all__'
