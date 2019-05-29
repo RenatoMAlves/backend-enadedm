@@ -1,8 +1,15 @@
+import json
+from django.utils.decorators import method_decorator
+from rest_framework.decorators import action
+from rest_framework.response import Response
+from rest_framework.viewsets import GenericViewSet
+from django.views.decorators.csrf import csrf_exempt
+
 from django.shortcuts import render
 from django.contrib.auth.models import User
 from plataforma_api.serializers import *
 from rest_framework import generics
-from .models import Ft_resultado, Dim_area_enquadramento, Dim_curso, Dim_regiao, Dim_ano
+from .models import Ft_resultado, Dim_area_enquadramento, Dim_curso, Dim_regiao, Dim_ano, Ft_associacao
 
 class ResultList(generics.ListAPIView):
     queryset = Ft_resultado.objects.all()
@@ -57,3 +64,10 @@ class RegioesList(generics.ListAPIView):
 class AnoList(generics.ListAPIView):
     queryset = Dim_ano.objects.all()
     serializer_class = AnoSerializer
+
+class Ft_associacaoList(generics.ListAPIView):
+    serializer_class = Ft_associacaoSerializer
+    def get_queryset(self):
+        curso = self.kwargs['id_curso']
+        ano_id = self.kwargs['ano']
+        return Ft_associacao.objects.filter(id_curso=curso,ano=ano_id)
