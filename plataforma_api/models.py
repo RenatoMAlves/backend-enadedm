@@ -44,3 +44,13 @@ class Ft_resultado(models.Model):
 
   def __str__(self):
     return "{} - {} ({})".format(self.ano, self.id_area, self.id_regiao)
+
+
+class Ft_associacao(models.Model):
+  name = models.CharField(max_length=100)
+  value = models.IntegerField(default=0)
+  ano = models.ForeignKey(Dim_ano, related_name='id_ano_id', on_delete=models.PROTECT)
+  id_curso = models.ForeignKey(Dim_curso, related_name='id_curso_id', on_delete=models.PROTECT)
+
+  def __str__(self):
+    return "{}".format(self.ano)
